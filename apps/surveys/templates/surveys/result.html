@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'surveys/main.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+      <div id="header">Thanks for submitting this form! You have submitted this form {{count}} times now!</div>
+      <div id="content">
+          <h1>Submitted Information</h1>
+          <table>
+              <tr>
+                  <td>Name:</td>
+                  <td>{{name}}</td>
+              </tr>
+              <tr>
+                  <td>Dojo Location:</td>
+                  <td>{{location}}</td>
+              </tr>
+              <tr>
+                  <td>Fav Language:</td>
+                  <td>{{language}}</td>
+              </tr>
+              <tr>
+                  <td>Comment:</td>
+                  <td>{{comment}}</td>  
+              </tr>
+          </table>
+          <form action="/back/" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Go Back">
+          </form>
+      </div>
+    </div>
+</body>
+</html>
